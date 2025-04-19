@@ -1,18 +1,10 @@
 [
     {
-        "usuario": "joao",
-        "senha": "1234"
+        "usuario": "Joao",
+        "senha": "abc@123"
     },
     {
-        "usuario": "teste",
-        "senha": "12345"
-    },
-    {
-        "usuario": "teste2",
-        "senha": "1234"
-    },
-    {
-        "usuario": "alexandre",
-        "senha": "1234567890"
+        "usuario": "Alexandre",
+        "senha": "abc@123"
     }
 ]

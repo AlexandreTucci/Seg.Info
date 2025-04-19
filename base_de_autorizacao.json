@@ -1,22 +1,20 @@
 [
     {
-        "usuario": "joao",
-        "permissoes": [
-            {
-                "arquivo": "recurso.c",
-                "leitura": true,
-                "escrita": false,
-                "execucao": false
-            }
-        ]
+        "usuario": "Joao",
+        "permissoes": {
+            "arquivo": "recurso.c",
+            "leitura": true,
+            "escrita": false,
+            "exclusao": false
+        }
     },
     {
-        "usuario": "alexandre",
+        "usuario": "Alexandre",
         "permissoes": {
             "arquivo": "recurso.c",
             "leitura": false,
             "escrita": false,
-            "execucao": false
+            "exclusao": false
         }
     }
 ]

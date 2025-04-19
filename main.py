@@ -1,5 +1,5 @@
 # integrantes: 
-# Alexandre andrioli Tucci
+# Alexandre Andrioli Tucci
 # João Victor Saboya Ribeiro de Carvalho
 
 import json
@@ -16,7 +16,6 @@ def login(usuario, senha, usuarios, base):
             InterfacePermissoes(usuario, base)
             return
     print('Login ou senha incorreto. Tente novamente mais tarde.')
-    interface(usuarios, base)
     return
 
 def cadastro(usuario, senha, usuarios, base):
@@ -25,35 +24,39 @@ def cadastro(usuario, senha, usuarios, base):
             print('Usuário já existe. Tente novamente.')
             interface(usuarios, base)
             return
-            # cadastro(input('Usuário: '), input('Senha: '))
     usuarios.append({'usuario': usuario, 'senha': senha})
     with open ('usuario.json', 'w') as arquivo:
-        usuarios = json.dump(usuarios, arquivo , ensure_ascii=False)
+        writeUsuarios = json.dump(usuarios, arquivo , ensure_ascii=False)
     base.append(
             {'usuario': usuario, 
             'permissoes': {
                     "arquivo": "recurso.c",
                     "leitura": False,
                     "escrita": False,
-                    "execucao": False
+                    "exclusao": False
                 }
             }
         )
     with open ('base_de_autorizacao.json', 'w') as arquivo:
         base = json.dump(base, arquivo , ensure_ascii=False)
+    with open ('base_de_autorizacao.json', 'r') as arquivo:
+        base = json.load(arquivo)
     InterfacePermissoes(usuario, base)
     
 
 def InterfacePermissoes(usuario, base):
+    print(usuario)
     permissao = escolherPermissao()
     nomeArquivo = escolherArquivo()
     for i in range(len(base)):
         if base[i]['usuario'] == usuario:
-            if (permissao == 'ler' and base[i]['permissoes'][0]['leitura'] == True) or (permissao == 'ler' and base[i]['permissoes'][0]['escrita'] == True) or (permissao == 'ler' and base[i]['permissoes'][0]['execucao'] == True):
-                print('O usuario ' + usuario + ' tem permissão para ' + permissao + ' o arquivo ' + nomeArquivo)
+            permissoes = base[i]['permissoes']
+            if (permissao == 'ler' and permissoes['leitura']) or \
+               (permissao == 'escrever' and permissoes['escrita']) or \
+               (permissao == 'apagar' and permissoes['exclusao']):
+                print(f'Acesso Permitido')
             else:
-                print('O usuario ' + usuario + 'NÃO tem permissão para ' + permissao + ' o arquivo ' + nomeArquivo)
-
+                print(f'Acesso Negado')
 
 def escolherPermissao():
     print('1. Ler')
@@ -68,7 +71,7 @@ def escolherPermissao():
         permissao = 'apagar'
     else:
         print('Opção inválida. Tente novamente.')
-        InterfacePermissoes()
+        return escolherPermissao()
     return permissao
 
 def escolherArquivo():
@@ -76,6 +79,7 @@ def escolherArquivo():
     return nomeArquivo
 
 def interface(usuarios, base):
+    print('Bem-vindo ao sistema de autenticação!')
     print('1. Login')
     print('2. Cadastro')
     print('3. Sair')
