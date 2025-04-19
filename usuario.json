@@ -1,1 +1,18 @@
-[{"usuario": "joao", "senha": "1234"}, {"usuario": "teste", "senha": "12345"}, {"usuario": "teste2", "senha": "1234"}]
+[
+    {
+        "usuario": "joao",
+        "senha": "1234"
+    },
+    {
+        "usuario": "teste",
+        "senha": "12345"
+    },
+    {
+        "usuario": "teste2",
+        "senha": "1234"
+    },
+    {
+        "usuario": "alexandre",
+        "senha": "1234567890"
+    }
+]

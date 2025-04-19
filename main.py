@@ -1,18 +1,23 @@
+# integrantes: 
+# Alexandre andrioli Tucci
+# João Victor Saboya Ribeiro de Carvalho
+
 import json
 
 with open ('base_de_autorizacao.json', "r") as arquivo:
     base = json.load(arquivo)
 with open ('usuario.json', 'r') as arquivo:
     usuarios = json.load(arquivo)
-    
+
 def login(usuario, senha, usuarios, base):
     for i in range(len(usuarios)):
         if usuarios[i]['usuario'] == usuario and usuarios[i]['senha'] == senha:
             print('Seja Bem Vindo ' + usuario)
+            InterfacePermissoes(usuario, base)
             return
     print('Login ou senha incorreto. Tente novamente mais tarde.')
-    interface(usuarios, base)        # login(input('usuario:'), input('senha:'))
-    return usuario
+    interface(usuarios, base)
+    return
 
 def cadastro(usuario, senha, usuarios, base):
     for i in range(len(usuarios)):
@@ -44,7 +49,7 @@ def InterfacePermissoes(usuario, base):
     nomeArquivo = escolherArquivo()
     for i in range(len(base)):
         if base[i]['usuario'] == usuario:
-            if (permissao == 'ler' and base[i]['permissoes']['leitura'] == True) or (permissao == 'ler' and base[i]['permissoes']['escrita'] == True) or (permissao == 'ler' and base[i]['permissoes']['execucao'] == True):
+            if (permissao == 'ler' and base[i]['permissoes'][0]['leitura'] == True) or (permissao == 'ler' and base[i]['permissoes'][0]['escrita'] == True) or (permissao == 'ler' and base[i]['permissoes'][0]['execucao'] == True):
                 print('O usuario ' + usuario + ' tem permissão para ' + permissao + ' o arquivo ' + nomeArquivo)
             else:
                 print('O usuario ' + usuario + 'NÃO tem permissão para ' + permissao + ' o arquivo ' + nomeArquivo)

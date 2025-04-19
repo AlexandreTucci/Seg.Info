@@ -1,17 +1,17 @@
 [
     {
-        "nome": "joao",
+        "usuario": "joao",
         "permissoes": [
             {
                 "arquivo": "recurso.c",
-                "leitura": false,
+                "leitura": true,
                 "escrita": false,
                 "execucao": false
             }
         ]
     },
     {
-        "usuario": "teste2",
+        "usuario": "alexandre",
         "permissoes": {
             "arquivo": "recurso.c",
             "leitura": false,
