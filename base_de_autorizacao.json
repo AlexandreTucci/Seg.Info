@@ -1,0 +1,22 @@
+[
+    {
+        "nome": "joao",
+        "permissoes": [
+            {
+                "arquivo": "recurso.c",
+                "leitura": false,
+                "escrita": false,
+                "execucao": false
+            }
+        ]
+    },
+    {
+        "usuario": "teste2",
+        "permissoes": {
+            "arquivo": "recurso.c",
+            "leitura": false,
+            "escrita": false,
+            "execucao": false
+        }
+    }
+]

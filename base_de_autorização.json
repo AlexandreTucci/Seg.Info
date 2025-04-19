@@ -1,1 +1,0 @@
-[{"nome": "joão das couves", "permissoes": [{"arquivo": "teste.c", "leitura": true, "escrita": true, "execucao": true, "excecucao": false}]}, {"nome": "fulano de tal", "permissoes": [{"arquivo": "main.rs", "leitura": true, "escrita": true, "execucao": false}]}]
